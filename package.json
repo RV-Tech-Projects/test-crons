@@ -1,0 +1,12 @@
+{
+  "name": "crons",
+  "version": "1.0.0",
+  "description": "Crons for my stuff",
+  "author": "Vighnesh Raut",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "googleapis": "^66.0.0",
+    "mime-types": "^2.1.27"
+  }
+}
