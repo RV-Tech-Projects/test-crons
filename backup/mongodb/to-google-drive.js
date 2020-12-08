@@ -38,7 +38,7 @@ const getDateForFileName = () => {
   const {execSync} = require("child_process");
 
   async function createDumpAndUpload(filePath, parentDirId, MONGO_URL) {
-    const dumpFileName = `${filePath.split(".")[0]}_dump`;
+    const dumpFileName = `${filePath.split(".")[0]}`;
     execSync(`mongodump --uri ${MONGO_URL} --out=${dumpFileName}`);
     execSync(`zip -r ${dumpFileName} ${filePath}`)
 
