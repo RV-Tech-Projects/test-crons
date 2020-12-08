@@ -38,13 +38,11 @@ const getDateForFileName = () => {
   const {execSync} = require("child_process");
 
   async function createDumpAndUpload(filePath, parentDirId, MONGO_URL) {
-    const dumpFileName = `${filePath.split(".")[0]}`;
-    execSync(`mongodump --uri ${MONGO_URL} --out=${dumpFileName}`);
-    execSync(`zip -r ${dumpFileName} ${filePath}`)
+    execSync(`mongodump --uri ${MONGO_URL} --archive=${filePath} --gzip`);
 
     const res = await drive.files.create({
       requestBody: {
-        name: `${getDateForFileName()}.zip`,
+        name: `${getDateForFileName()}.gz`,
         mimeType: mime.lookup(filePath),
         parents: [parentDirId],
       },
